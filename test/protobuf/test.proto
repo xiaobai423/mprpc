@@ -1,0 +1,45 @@
+syntax = "proto3";
+package fixbug;
+
+//定义rpc方法类选项，默认不生成
+option cc_generic_services = true;
+
+message Result{
+    int32 errno_ack = 1;
+    string errmsg = 2;
+}
+message LoginRequest {
+string name = 1;//bytes存储效率比string更高
+string pwd = 2;
+}
+message RegRequest {
+string name = 1;
+string pwd = 2;
+int32 age = 3;
+enum SEX {
+MAN = 0;
+WOMAN = 1;
+}
+SEX sex = 4;
+string phone = 5;
+}
+message Response {
+Result errno_code = 1;
+bool result = 2;
+}
+
+message User{
+    bytes name = 1;
+    int32 age = 2;
+}
+
+message getfriendlist{
+    Result errno_code1 = 1;
+    repeated User users = 2;
+}
+
+// 定义RPC服务接口类和服务方法
+service UserServiceRpc{
+rpc login(LoginRequest) returns (Response);
+rpc reg(RegRequest) returns (Response);
+}

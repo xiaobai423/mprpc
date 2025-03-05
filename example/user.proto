@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+package fixbug;
+
+option cc_generic_services = true;
+message ResultCode{
+    int32 errcode = 1;
+    bytes errmsg = 2;
+}
+
+message LoginRequest{
+    bytes name = 1;
+    bytes pwd = 2;
+}
+
+message loginResponse{
+    ResultCode result = 1;
+    bool success = 2;
+}
+message RegRequest{
+    bytes name = 2;
+    bytes pwd = 3;
+}
+message RegResponse{
+    ResultCode result = 1;
+    uint32 id = 2;
+}
+
+
+service UserServiceRpc{
+    rpc login(LoginRequest)returns(loginResponse);
+    rpc reg(RegRequest)returns(RegResponse);
+}
