@@ -15,7 +15,7 @@ class FriendService:public FiendServiceRpc{
          friendlist.push_back("苏嘉航");
          friendlist.push_back("闵哲");
          friendlist.push_back("康展翼");
-         friendlist.push_back("李玉辉");
+         friendlist.push_back("李昱辉");
          friendlist.push_back("王震");
          return friendlist;
     }
