@@ -1,0 +1,3 @@
+test/protobuf-*/**/*.so*
+test/protobuf-*/**/*.a
+test/protobuf-*/**/*.o
